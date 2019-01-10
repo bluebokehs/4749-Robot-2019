@@ -1,8 +1,9 @@
-package frc.team4749.robot.subsystems;
+package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+
 import edu.wpi.first.wpilibj.command.Subsystem;
-import frc.team4749.robot.RobotMap;
+import frc.robot.RobotMap;
 
 
 public class Climber extends Subsystem implements RobotMap {

@@ -1,18 +1,26 @@
-package frc.team4749.robot;
+/*----------------------------------------------------------------------------*/
+/* Copyright (c) 2017-2018 FIRST. All Rights Reserved.                        */
+/* Open Source Software - may be modified and shared by FRC teams. The code   */
+/* must be accompanied by the FIRST BSD license file in the root directory of */
+/* the project.                                                               */
+/*----------------------------------------------------------------------------*/
+
+package frc.robot;
 
 import edu.wpi.cscore.AxisCamera;
 import edu.wpi.cscore.CvSink;
 import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import frc.team4749.robot.commands.drive.FastDrive;
-import frc.team4749.robot.commands.elevator.*;
-import frc.team4749.robot.commands.drive.Brake;
-import frc.team4749.robot.commands.climb.Climb;
+import frc.robot.commands.climb.Climb;
 
+/**
+ * This class is the glue that binds the controls on the physical operator
+ * interface to the commands and command groups that allow control of the robot.
+ */
 public class OI implements RobotMap {
-
-    public static OI instance;
+  
+  public static OI instance;
     private Controller mainController;
     private JoystickButton climb;
 
@@ -60,4 +68,5 @@ public class OI implements RobotMap {
     public Controller getController(){
         return mainController;
     }
+
 }

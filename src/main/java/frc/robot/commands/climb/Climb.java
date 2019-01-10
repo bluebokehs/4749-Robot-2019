@@ -1,13 +1,13 @@
-package frc.team4749.robot.commands.climb;
+package frc.robot.commands.climb;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-import frc.team4749.robot.Robot;
+import frc.robot.Robot;
 
 public class Climb extends Command {
 
     public Climb(){
-        //requires(Robot.climber);
+        requires(Robot.climber);
     }
 
     protected void initialize(){

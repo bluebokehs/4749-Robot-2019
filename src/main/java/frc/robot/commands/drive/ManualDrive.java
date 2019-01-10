@@ -1,8 +1,7 @@
-package frc.team4749.robot.commands.drive;
+package frc.robot.commands.drive;
 
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import frc.team4749.robot.Robot;
+import frc.robot.Robot;
 
 public class ManualDrive extends Command {
 
@@ -15,7 +14,7 @@ public class ManualDrive extends Command {
     }
 
     protected void execute() {
-        Robot.driveTrain.manualDrive(Robot.oi.getController());
+        Robot.driveTrain.manualDrive(Robot.m_oi.getController());
     }
 
     protected void end() {

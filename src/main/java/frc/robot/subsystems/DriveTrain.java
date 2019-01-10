@@ -1,4 +1,4 @@
-package frc.team4749.robot.subsystems;
+package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
@@ -6,10 +6,10 @@ import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 import edu.wpi.first.wpilibj.drive.MecanumDrive;
-import frc.team4749.robot.Controller;
-import frc.team4749.robot.OI;
-import frc.team4749.robot.RobotMap;
-import frc.team4749.robot.commands.drive.ManualDrive;
+import frc.robot.Controller;
+import frc.robot.OI;
+import frc.robot.RobotMap;
+import frc.robot.commands.drive.ManualDrive;
 
 public class DriveTrain extends Subsystem implements RobotMap {
 
@@ -33,8 +33,7 @@ public class DriveTrain extends Subsystem implements RobotMap {
 
     //Talon Mode change functions
     public void setAuto(){
-        resetPos();
-
+        
         System.out.println("DriveTrain set to autonomous");
     }
 
