@@ -12,6 +12,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import frc.robot.commands.auto.AutoForward;
 import frc.robot.subsystems.*;
 
 /**
@@ -34,8 +35,8 @@ public class Robot extends TimedRobot {
   @Override
   public void robotInit() { // runs once before robotPeriodic when the robot is turned on
     m_oi = new OI();
-    //m_chooser.setDefaultOption("Default Auto", new Default Auto());
-    // chooser.addOption("Other Auto", new AutoCommand());
+    m_chooser.setDefaultOption("Default Auto", new AutoForward());
+    //m_chooser.addOption("Other Auto", new AutoCommand());
     SmartDashboard.putData("Auto mode", m_chooser);
   }
 
@@ -69,7 +70,8 @@ public class Robot extends TimedRobot {
 
   @Override
   public void teleopInit() { // runs once before teleopPeriodic after the robot is in teleop mode
-    
+    driveTrain.setManual();
+
     // This makes sure that the autonomous stops running when teleop starts running.
     if (m_autonomousCommand != null) {
       m_autonomousCommand.cancel();

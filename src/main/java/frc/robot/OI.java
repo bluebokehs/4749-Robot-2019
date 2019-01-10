@@ -13,6 +13,7 @@ import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.commands.climb.Climb;
+import frc.robot.commands.climb.ClimbUp;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -22,7 +23,7 @@ public class OI implements RobotMap {
   
   public static OI instance;
     private Controller mainController;
-    private JoystickButton climb;
+    private JoystickButton climb, climbUp;
 
     private Thread m_visionThread;
 
@@ -56,6 +57,7 @@ public class OI implements RobotMap {
     private void createButtons(){
         //Create Buttons for main controller
         climb = new JoystickButton(mainController,CLIMB_BUTTON);
+        climbUp = new JoystickButton(mainController, CLIMB_UP);
 
         assignButtons();
     }
@@ -63,6 +65,7 @@ public class OI implements RobotMap {
     private void assignButtons(){
         //Assign commands to main controller buttons
         climb.whileHeld(new Climb());
+        climbUp.whenPressed(new ClimbUp());
 
     }
     public Controller getController(){

@@ -2,6 +2,7 @@ package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
 
@@ -21,6 +22,12 @@ public class Climber extends Subsystem implements RobotMap {
 
     public void climb(){
         climber.set(CLIMBER_SPEED);
+    }
+
+    public void climbUp(double time){
+        climber.set(CLIMBER_AUTO_SPEED);
+        Timer.delay(time);
+        this.stop();
     }
 
     public void stop(){
