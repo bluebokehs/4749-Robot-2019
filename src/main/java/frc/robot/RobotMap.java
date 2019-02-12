@@ -18,7 +18,7 @@ public interface RobotMap {
   int MAIN_CONTROLLER = 0;
 
   //Controller Buttons
-  int CLIMB_BUTTON = 1;
+  int ROTATE_BUTTON = 1;
   int CLIMB_UP = 2;
 
   //CanTalonSRX
@@ -26,11 +26,11 @@ public interface RobotMap {
   int DT_FRONTRIGHT = 2;
   int DT_BACKLEFT = 3;
   int DT_BACKRIGHT = 4;
-  int CLIMBER = 5;
+  int HATCH_ROTATOR = 5;
 
   //Climber Constants
-  double CLIMBER_SPEED = 1;
-  double CLIMBER_AUTO_SPEED = 0.5;
+  double ROTATOR_SPEED = 1;
+  double ROTATOR_AUTO_SPEED = 0.5;
 
   //Drive Train Constants
   double AUTO_SPEED = 0.3;

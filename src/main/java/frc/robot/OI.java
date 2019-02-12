@@ -56,7 +56,7 @@ public class OI implements RobotMap {
 
     private void createButtons(){
         //Create Buttons for main controller
-        climb = new JoystickButton(mainController,CLIMB_BUTTON);
+        climb = new JoystickButton(mainController,ROTATE_BUTTON);
         climbUp = new JoystickButton(mainController, CLIMB_UP);
 
         assignButtons();

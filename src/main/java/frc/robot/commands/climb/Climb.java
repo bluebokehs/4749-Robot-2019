@@ -7,15 +7,15 @@ import frc.robot.Robot;
 public class Climb extends Command {
 
     public Climb(){
-        requires(Robot.climber);
+        requires(Robot.hatchRotator);
     }
 
     protected void initialize(){
-        Robot.climber.climb();
+        Robot.hatchRotator.climb();
     }
 
     protected void end(){
-        Robot.climber.stop();
+        Robot.hatchRotator.stop();
     }
 
     @Override
