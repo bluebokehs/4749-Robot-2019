@@ -11,7 +11,7 @@ public class Climb extends Command {
     }
 
     protected void initialize(){
-        Robot.hatchRotator.climb();
+        Robot.hatchRotator.rotate(.02205);
     }
 
     protected void end(){

@@ -27,6 +27,11 @@ public class DriveTrain extends Subsystem implements RobotMap {
         frontRight.setInverted(true);
         backRight.setInverted(true);
 
+        frontLeft.setNeutralMode(NeutralMode.Brake);
+        frontRight.setNeutralMode(NeutralMode.Brake);
+        backLeft.setNeutralMode(NeutralMode.Brake);
+        backRight.setNeutralMode(NeutralMode.Brake);
+
         robotDrive = new MecanumDrive(frontLeft, backLeft, frontRight, backRight);
         setManual();
     }

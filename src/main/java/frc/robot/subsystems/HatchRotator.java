@@ -20,8 +20,10 @@ public class HatchRotator extends Subsystem implements RobotMap {
         // TODO - make this motor controller brake instead of coast
     }
 
-    public void climb(){
+    public void rotate(double time){
         hatchRotator.set(ROTATOR_SPEED);
+        Timer.delay(time);
+        this.stop();
     }
 
     public void climbUp(double time){
