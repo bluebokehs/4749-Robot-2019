@@ -1,8 +1,10 @@
 package frc.robot.subsystems;
 
+import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
+import edu.wpi.first.wpilibj.Sendable;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -77,7 +79,7 @@ public class HatchRotator extends Subsystem implements RobotMap {
         hatchRotator.set(ControlMode.Position, (this.getEncoderPosition()+ 21100));
         downState = !downState;
         
-        SmartDashboard.putData("Downstate", downState);
+        SmartDashboard.putBoolean("Downstate", downState);
     }
 
     public int getEncoderPosition(){

@@ -13,11 +13,8 @@ import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.commands.climb.HatchRotator;
-import frc.robot.commands.climb.ClimbUp;
-import frc.robot.commands.climb.Open;
 import frc.robot.commands.climb.Reset;
-import frc.robot.commands.climb.SetMax;
-import frc.robot.commands.climb.SetMin;
+
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -27,7 +24,7 @@ public class OI implements RobotMap {
   
   public static OI instance;
     private Controller mainController;
-    private JoystickButton climb, climbUp;
+    private JoystickButton climb;
 
     private Thread m_visionThread;
 
