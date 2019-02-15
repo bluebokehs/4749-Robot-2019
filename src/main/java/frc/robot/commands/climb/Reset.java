@@ -16,7 +16,7 @@ public class Reset extends Command {
   }
 
   protected void initialize(){
-      Robot.hatchRotator.reset();
+      Robot.hatchRotator.resetPos();
   }
 
   protected void end(){

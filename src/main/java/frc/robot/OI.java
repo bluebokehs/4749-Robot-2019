@@ -57,16 +57,12 @@ public class OI implements RobotMap {
         m_visionThread.setDaemon(true);
         m_visionThread.start();
 
-        SmartDashboard.putData("Set Minimum height", new SetMin());
-        SmartDashboard.putData("Set Maximum height", new SetMax());
         SmartDashboard.putData("Reset height", new Reset());
-        SmartDashboard.putData("Open Limits", new Open());
     }
 
     private void createButtons(){
         //Create Buttons for main controller
         climb = new JoystickButton(mainController,ROTATE_BUTTON);
-        climbUp = new JoystickButton(mainController, CLIMB_UP);
 
         assignButtons();
     }
@@ -74,7 +70,6 @@ public class OI implements RobotMap {
     private void assignButtons(){
         //Assign commands to main controller buttons
         climb.whileHeld(new HatchRotator());
-        climbUp.whenPressed(new ClimbUp());
 
     }
     public Controller getController(){
