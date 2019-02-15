@@ -1,9 +1,11 @@
 package frc.robot.subsystems;
 
+import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.RobotMap;
 
 
@@ -18,12 +20,51 @@ public class HatchRotator extends Subsystem implements RobotMap {
     {
         hatchRotator = new WPI_TalonSRX(HATCH_ROTATOR);
         // TODO - make this motor controller brake instead of coast
+
+        hatchRotator.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, 0);
+
+        this.close();
+        hatchRotator.setSelectedSensorPosition(0,0,0);
+        // hatchRotator.configForwardSoftLimitEnable(false, 0);
+        // hatchRotator.configReverseSoftLimitEnable(false, 0);
+        // hatchRotator.configForwardSoftLimitThreshold(19500, 0);
+        // hatchRotator.configReverseSoftLimitThreshold(0, 0);
     }
 
-    public void rotate(double time){
+    public void rotate(){
         hatchRotator.set(ROTATOR_SPEED);
-        Timer.delay(time);
-        this.stop();
+
+        
+    }
+
+    public int getEncoderPosition(){
+        return hatchRotator.getSelectedSensorPosition(0);
+    }
+
+    public void setMax(){
+        hatchRotator.configForwardSoftLimitThreshold(this.getEncoderPosition(),0);
+    }
+
+    public void setMin(){
+        hatchRotator.configReverseSoftLimitThreshold(this.getEncoderPosition(), 0);
+    }
+
+    public void reset(){
+        hatchRotator.setSelectedSensorPosition(0,0,0);
+    }
+
+    public void open(){
+        hatchRotator.configForwardSoftLimitEnable(false, 0);
+        hatchRotator.configReverseSoftLimitEnable(false, 0);
+    }
+
+    public void close(){
+        hatchRotator.configForwardSoftLimitEnable(true, 0);
+        hatchRotator.configReverseSoftLimitEnable(true, 0);
+    }
+
+    public void resetPos() {
+        System.out.println("hatchRotator Talon position reset");
     }
 
     public void climbUp(double time){
@@ -39,6 +80,7 @@ public class HatchRotator extends Subsystem implements RobotMap {
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
+
     }
 
 }

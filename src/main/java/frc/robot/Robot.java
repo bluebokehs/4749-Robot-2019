@@ -42,6 +42,8 @@ public class Robot extends TimedRobot {
 
   @Override
   public void robotPeriodic() { // runs periodicly while the robot is turned on
+    SmartDashboard.putNumber("Hatch Rotator Position", hatchRotator.getEncoderPosition());
+    
   }
 
   @Override

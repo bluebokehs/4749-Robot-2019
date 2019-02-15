@@ -4,14 +4,14 @@ import edu.wpi.first.wpilibj.command.Command;
 
 import frc.robot.Robot;
 
-public class Climb extends Command {
+public class HatchRotator extends Command {
 
-    public Climb(){
+    public HatchRotator(){
         requires(Robot.hatchRotator);
     }
 
     protected void initialize(){
-        Robot.hatchRotator.rotate(.02205);
+        Robot.hatchRotator.rotate();
     }
 
     protected void end(){

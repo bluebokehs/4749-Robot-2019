@@ -12,8 +12,12 @@ import edu.wpi.cscore.CvSink;
 import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import frc.robot.commands.climb.Climb;
+import frc.robot.commands.climb.HatchRotator;
 import frc.robot.commands.climb.ClimbUp;
+import frc.robot.commands.climb.Open;
+import frc.robot.commands.climb.Reset;
+import frc.robot.commands.climb.SetMax;
+import frc.robot.commands.climb.SetMin;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -52,6 +56,11 @@ public class OI implements RobotMap {
         });
         m_visionThread.setDaemon(true);
         m_visionThread.start();
+
+        SmartDashboard.putData("Set Minimum height", new SetMin());
+        SmartDashboard.putData("Set Maximum height", new SetMax());
+        SmartDashboard.putData("Reset height", new Reset());
+        SmartDashboard.putData("Open Limits", new Open());
     }
 
     private void createButtons(){
@@ -64,7 +73,7 @@ public class OI implements RobotMap {
 
     private void assignButtons(){
         //Assign commands to main controller buttons
-        climb.whileHeld(new Climb());
+        climb.whileHeld(new HatchRotator());
         climbUp.whenPressed(new ClimbUp());
 
     }

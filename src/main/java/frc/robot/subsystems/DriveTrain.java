@@ -23,9 +23,9 @@ public class DriveTrain extends Subsystem implements RobotMap {
         backRight = new WPI_TalonSRX(DT_BACKRIGHT);
 
         frontLeft.setInverted(true);
-        backLeft.setInverted(true);
+        backLeft.setInverted(false);
         frontRight.setInverted(true);
-        backRight.setInverted(true);
+        backRight.setInverted(false);
 
         frontLeft.setNeutralMode(NeutralMode.Brake);
         frontRight.setNeutralMode(NeutralMode.Brake);

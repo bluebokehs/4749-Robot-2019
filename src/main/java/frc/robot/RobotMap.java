@@ -29,7 +29,7 @@ public interface RobotMap {
   int HATCH_ROTATOR = 5;
 
   //Climber Constants
-  double ROTATOR_SPEED = 1;
+  double ROTATOR_SPEED = 0.3;
   double ROTATOR_AUTO_SPEED = 0.5;
 
   //Drive Train Constants
