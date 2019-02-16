@@ -8,7 +8,6 @@ import frc.robot.RobotMap;
 public class Slow extends Command implements RobotMap {
 
     public static boolean toSlow = false;
-
   
 
     protected void initialize(){
