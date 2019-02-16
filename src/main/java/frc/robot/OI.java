@@ -14,6 +14,7 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.commands.climb.HatchRotator;
 import frc.robot.commands.climb.Reset;
+import frc.robot.commands.climb.Slow;
 
 
 /**
@@ -24,7 +25,7 @@ public class OI implements RobotMap {
   
   public static OI instance;
     private Controller mainController;
-    private JoystickButton climb;
+    private JoystickButton rotate, slow;
 
     private Thread m_visionThread;
 
@@ -59,16 +60,19 @@ public class OI implements RobotMap {
 
     private void createButtons(){
         //Create Buttons for main controller
-        climb = new JoystickButton(mainController,ROTATE_BUTTON);
+        rotate = new JoystickButton(mainController, ROTATE_BUTTON);
+        slow = new JoystickButton(mainController, SLOW_BUTTON);
+
 
         assignButtons();
     }
 
     private void assignButtons(){
         //Assign commands to main controller buttons
-        climb.whileHeld(new HatchRotator());
-
+        rotate.whileHeld(new HatchRotator());
+        slow.whileHeld(new Slow());
     }
+
     public Controller getController(){
         return mainController;
     }

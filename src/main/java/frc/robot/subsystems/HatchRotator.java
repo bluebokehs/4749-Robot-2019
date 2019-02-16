@@ -2,7 +2,7 @@ package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
-import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+import com.ctre.phoenix.motorcontrol.can.*;
 
 import edu.wpi.first.wpilibj.Sendable;
 import edu.wpi.first.wpilibj.Timer;
@@ -14,7 +14,7 @@ import frc.robot.RobotMap;
 public class HatchRotator extends Subsystem implements RobotMap {
 
     private static HatchRotator instance;
-    private WPI_TalonSRX hatchRotator;
+    private TalonSRX hatchRotator;
 
     public boolean downState;
 
@@ -22,7 +22,7 @@ public class HatchRotator extends Subsystem implements RobotMap {
     // here. Call these from Commands.
     public HatchRotator()
     {
-        hatchRotator = new WPI_TalonSRX(HATCH_ROTATOR);
+        hatchRotator = new TalonSRX(HATCH_ROTATOR);
         // TODO - make this motor controller brake instead of coast
 
         hatchRotator.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 
@@ -75,10 +75,16 @@ public class HatchRotator extends Subsystem implements RobotMap {
         downState = true;
     }
 
-    public void rotate(){
-        hatchRotator.set(ControlMode.Position, (this.getEncoderPosition()+ 21100));
+    public void rotate(){       
+        if (downState) {
+            hatchRotator.set(ControlMode.Position, (23500));
+            
+        }
+        else {
+            hatchRotator.set(ControlMode.Position, (0));
+        } 
         downState = !downState;
-        
+
         SmartDashboard.putBoolean("Downstate", downState);
     }
 
@@ -92,7 +98,7 @@ public class HatchRotator extends Subsystem implements RobotMap {
     }
 
     public void stop(){
-        hatchRotator.set(0);
+        
     }
 
     public void initDefaultCommand() {

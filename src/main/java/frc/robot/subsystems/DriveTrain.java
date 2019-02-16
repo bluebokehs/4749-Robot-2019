@@ -4,11 +4,13 @@ import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.command.Command;
 
 import edu.wpi.first.wpilibj.drive.MecanumDrive;
 import frc.robot.Controller;
 import frc.robot.OI;
 import frc.robot.RobotMap;
+import frc.robot.commands.climb.Slow;
 import frc.robot.commands.drive.ManualDrive;
 
 public class DriveTrain extends Subsystem implements RobotMap {
@@ -99,7 +101,17 @@ public class DriveTrain extends Subsystem implements RobotMap {
 
     // Basic Teleop Functions
     public void manualDrive(Controller controller){
-        robotDrive.driveCartesian((controller.getLX() * DRIVE_SPEED * -1), (controller.getLY() * DRIVE_SPEED),(controller.getRudder() * ROTATE_SPEED));
+        double divideFactor = 1;
+        
+
+        if (Slow.toSlow == false) {
+            divideFactor = 1;
+        }
+        else {
+            divideFactor = 1.5;
+        }
+
+        robotDrive.driveCartesian((controller.getLX() * (DRIVE_SPEED/divideFactor) * -1), (controller.getLY() * (DRIVE_SPEED/divideFactor)), (controller.getRudder() * (ROTATE_SPEED/divideFactor)));
     }
 
     // Support functions

@@ -19,7 +19,7 @@ public interface RobotMap {
 
   //Controller Buttons
   int ROTATE_BUTTON = 1;
-  int CLIMB_UP = 2;
+  int SLOW_BUTTON = 2;
 
   //CanTalonSRX
   int DT_FRONTLEFT = 1;
@@ -29,13 +29,16 @@ public interface RobotMap {
   int HATCH_ROTATOR = 5;
 
   //Climber Constants
-  double ROTATOR_SPEED = 1;
+  double ROTATOR_SPEED = 0.1;
   double ROTATOR_AUTO_SPEED = 0.5;
 
   //Drive Train Constants
   double AUTO_SPEED = 0.3;
-  double DRIVE_SPEED = 0.8;
-  double ROTATE_SPEED = 0.6;
+  double DRIVE_SPEED = 0.5;
+  double ROTATE_SPEED = 0.4;
+
+
+  
 
   //Position stuff
   /**
@@ -58,17 +61,17 @@ public interface RobotMap {
 	public static final int kTimeoutMs = 30;
 	
 	/* Choose so that Talon does not report sensor out of phase */
-	public static boolean kSensorPhase = true;
+	public static boolean kSensorPhase = false;
 
 	/**
 	 * Choose based on what direction you want to be positive,
 	 * this does not affect motor invert. 
 	 */
-	public static boolean kMotorInvert = false;
+	public static boolean kMotorInvert = true;
 
 	/**
 	 * Gains used in Positon Closed Loop, to be adjusted accordingly
      * Gains(kp, ki, kd, kf, izone, peak output);
      */
-  static final Gains kGains = new Gains(0.15, 0.0, 1.0, 0.0, 0, 1.0);
+  static final Gains kGains = new Gains(0.05, 0.0, 1.0, 0.0, 0, 0.0);
 }
