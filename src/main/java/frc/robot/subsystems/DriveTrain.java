@@ -26,7 +26,7 @@ public class DriveTrain extends Subsystem implements RobotMap {
 
         frontLeft.setInverted(true);
         backLeft.setInverted(false);
-        frontRight.setInverted(true);
+        frontRight.setInverted(false);
         backRight.setInverted(false);
 
         frontLeft.setNeutralMode(NeutralMode.Brake);
@@ -111,7 +111,7 @@ public class DriveTrain extends Subsystem implements RobotMap {
             divideFactor = 1.5;
         }
 
-        robotDrive.driveCartesian((controller.getLX() * (DRIVE_SPEED/divideFactor) * -1), (controller.getLY() * (DRIVE_SPEED/divideFactor)), (controller.getRudder() * (ROTATE_SPEED/divideFactor)));
+        robotDrive.driveCartesian((controller.getLX() * (DRIVE_SPEED/divideFactor) * -1.3), (controller.getLY() * (DRIVE_SPEED/divideFactor)), (controller.getRudder() * (ROTATE_SPEED/divideFactor)));
     }
 
     // Support functions
