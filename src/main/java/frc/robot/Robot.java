@@ -60,12 +60,13 @@ public class Robot extends TimedRobot {
 
   @Override
   public void autonomousInit() { // runs once before autonomousPeriodic after autonomous mode is started
-    m_autonomousCommand = m_chooser.getSelected();
+    // m_autonomousCommand = m_chooser.getSelected();
 
-    // schedule the autonomous command
-    if (m_autonomousCommand != null) {
-      m_autonomousCommand.start();
-    }
+    // // schedule the autonomous command
+    // if (m_autonomousCommand != null) {
+    //   m_autonomousCommand.start();
+    // }
+    driveTrain.setManual();
   }
 
   @Override
@@ -78,9 +79,9 @@ public class Robot extends TimedRobot {
     driveTrain.setManual();
 
     // This makes sure that the autonomous stops running when teleop starts running.
-    if (m_autonomousCommand != null) {
-      m_autonomousCommand.cancel();
-    }
+    // if (m_autonomousCommand != null) {
+    //   m_autonomousCommand.cancel();
+    // }
   }
 
   @Override

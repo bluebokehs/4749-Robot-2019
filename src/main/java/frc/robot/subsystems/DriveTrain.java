@@ -40,8 +40,8 @@ public class DriveTrain extends Subsystem implements RobotMap {
 
     //Talon Mode change functions
     public void setAuto(){
-        
         System.out.println("DriveTrain set to autonomous");
+        
     }
 
     public void setManual(){
